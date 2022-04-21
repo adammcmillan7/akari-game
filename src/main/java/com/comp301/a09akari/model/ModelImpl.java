@@ -22,7 +22,7 @@ public class ModelImpl implements Model{
     }
 
     private void initLamps(){
-        lamps = new int[active_puzzle.getHeight()-1][active_puzzle.getWidth()-1];
+        lamps = new int[active_puzzle.getHeight()-[active_puzzle.getWidth()];
         for (int i=0;i<active_puzzle.getHeight();i++){
             for (int j=0;j<active_puzzle.getWidth();j++){
                 lamps[i][j] = 0;
