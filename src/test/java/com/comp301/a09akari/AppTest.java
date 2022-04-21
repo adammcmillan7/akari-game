@@ -72,4 +72,18 @@ public class AppTest {
 
     assertTrue(model.isClueSatisfied(4,0));
   }
+
+  @Test
+  public void isSolved(){
+    int[][] board = SamplePuzzles.PUZZLE_05;
+    Puzzle puzzle = new PuzzleImpl(board);
+    PuzzleLibrary lib = new PuzzleLibraryImpl();
+    lib.addPuzzle(puzzle);
+
+    Model model = new ModelImpl(lib);
+
+    model.setActivePuzzleIndex(0);
+
+    assertFalse(model.isSolved());
+  }
 }
