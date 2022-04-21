@@ -16,12 +16,14 @@ public class AppTest {
 
   @Test
   public void puzzleimp(){
-    int[][] board = SamplePuzzles.PUZZLE_01;
+    int[][] board = SamplePuzzles.PUZZLE_05;
 
     Puzzle puzzle = new PuzzleImpl(board);
 
-    assertEquals(CellType.CORRIDOR,puzzle.getCellType(0,0));
-    assertEquals(CellType.CLUE,puzzle.getCellType(0,4));
+    //assertEquals(CellType.CORRIDOR,puzzle.getCellType(0,0));
+    //assertEquals(CellType.CLUE,puzzle.getCellType(0,4));
+
+    System.out.println(puzzle.getHeight());
   }
 
   @Test
