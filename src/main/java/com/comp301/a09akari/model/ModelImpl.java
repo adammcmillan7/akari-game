@@ -40,6 +40,7 @@ public class ModelImpl implements Model {
     }
 
     lamps[r][c] = 1;
+    notifyObservers();
   }
 
   @Override
@@ -55,6 +56,7 @@ public class ModelImpl implements Model {
     }
 
     lamps[r][c] = 0;
+    notifyObservers();
   }
 
   @Override
@@ -165,6 +167,7 @@ public class ModelImpl implements Model {
     puzzle_index = index;
     active_puzzle = lib.getPuzzle(puzzle_index);
     initLamps();
+    notifyObservers();
   }
 
   @Override
@@ -175,6 +178,7 @@ public class ModelImpl implements Model {
   @Override
   public void resetPuzzle() {
     initLamps();
+    notifyObservers();
   }
 
   @Override
@@ -258,5 +262,11 @@ public class ModelImpl implements Model {
     }
 
     observers.remove(observer);
+  }
+
+  private void notifyObservers(){
+      for (ModelObserver observer : observers) {
+          observer.update(this);
+      }
   }
 }
