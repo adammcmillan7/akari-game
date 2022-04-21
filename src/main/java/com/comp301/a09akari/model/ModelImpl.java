@@ -36,6 +36,9 @@ public class ModelImpl implements Model{
         if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
             throw new IndexOutOfBoundsException();
         }
+        else if ((r<0) || (c<0)){
+            throw new IndexOutOfBoundsException();
+        }
         else if (active_puzzle.getCellType(r,c) != CellType.CORRIDOR){
             throw new IllegalArgumentException();
         }
@@ -50,6 +53,9 @@ public class ModelImpl implements Model{
         if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
             throw new IndexOutOfBoundsException();
         }
+        else if ((r<0) || (c<0)){
+            throw new IndexOutOfBoundsException();
+         }
         else if (active_puzzle.getCellType(r,c) != CellType.CORRIDOR){
             throw new IllegalArgumentException();
         }
@@ -65,6 +71,9 @@ public class ModelImpl implements Model{
     @Override
     public boolean isLit(int r, int c) {
         if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+            throw new IndexOutOfBoundsException();
+        }
+        else if ((r<0) || (c<0)){
             throw new IndexOutOfBoundsException();
         }
         else if (active_puzzle.getCellType(r,c) != CellType.CORRIDOR){
@@ -127,6 +136,9 @@ public class ModelImpl implements Model{
         if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
             throw new IndexOutOfBoundsException();
         }
+        else if ((r<0) || (c<0)){
+            throw new IndexOutOfBoundsException();
+        }
         else if (active_puzzle.getCellType(r,c) != CellType.CORRIDOR){
             throw new IllegalArgumentException();
         }
@@ -140,6 +152,9 @@ public class ModelImpl implements Model{
     @Override
     public boolean isLampIllegal(int r, int c) {
         if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+            throw new IndexOutOfBoundsException();
+        }
+        else if ((r<0) || (c<0)){
             throw new IndexOutOfBoundsException();
         }
         else if (lamps[r][c] != 1){
@@ -164,7 +179,7 @@ public class ModelImpl implements Model{
 
     @Override
     public void setActivePuzzleIndex(int index) {
-        if (index > lib.size()){
+        if (index >= lib.size()){
             throw new IndexOutOfBoundsException();
         }
 
