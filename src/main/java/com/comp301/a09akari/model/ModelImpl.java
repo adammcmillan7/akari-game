@@ -248,13 +248,13 @@ public class ModelImpl implements Model{
         if (lamps[r+1][c] == 1){
             real_count += 1;
         }
-        else if (lamps[r-1][c] == 1){
+        else if ((r!= 0) && (lamps[r-1][c] == 1)){
             real_count +=1;
         }
         else if (lamps[r][c+1] == 1){
             real_count += 1;
         }
-        else if (lamps[r][c-1] == 1){
+        else if ((c!= 0) && (lamps[r][c-1] == 1)){
             real_count += 1;
         }
 
