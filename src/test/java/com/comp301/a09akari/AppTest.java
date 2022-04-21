@@ -47,4 +47,23 @@ public class AppTest {
     assertFalse(model.isLit(2,1));
 
   }
+
+  @Test
+  public void iscluesat(){
+    int[][] board = SamplePuzzles.PUZZLE_05;
+    Puzzle puzzle = new PuzzleImpl(board);
+    PuzzleLibrary lib = new PuzzleLibraryImpl();
+    lib.addPuzzle(puzzle);
+
+    Model model = new ModelImpl(lib);
+
+    model.setActivePuzzleIndex(0);
+
+    model.addLamp(0,0);
+
+    assertFalse(model.isClueSatisfied(4,0));
+    assertFalse(model.isClueSatisfied(5,1));
+    assertTrue(model.isClueSatisfied(6,4));
+    assertFalse(model.isClueSatisfied(1,5));
+  }
 }

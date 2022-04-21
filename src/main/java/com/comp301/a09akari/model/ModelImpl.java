@@ -232,7 +232,7 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isClueSatisfied(int r, int c) {
-        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+        if ((r >= active_puzzle.getHeight()) || (c >= active_puzzle.getWidth())){
             throw new IndexOutOfBoundsException();
         }
         else if ((r<0) || (c<0)){
@@ -245,14 +245,18 @@ public class ModelImpl implements Model{
         int clue_count = active_puzzle.getClue(r,c);
         int real_count = 0;
 
-        if (lamps[r+1][c] == 1){
-            real_count += 1;
+        if (r!= active_puzzle.getWidth()){
+            if (lamps[r+1][c] == 1) {
+                real_count += 1;
+            }
         }
         else if ((r!= 0) && (lamps[r-1][c] == 1)){
             real_count +=1;
         }
-        else if (lamps[r][c+1] == 1){
-            real_count += 1;
+        else if (c!= active_puzzle.getHeight()){
+            if (lamps[r][c+1] == 1) {
+                real_count += 1;
+            }
         }
         else if ((c!= 0) && (lamps[r][c-1] == 1)){
             real_count += 1;
