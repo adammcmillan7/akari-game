@@ -159,10 +159,14 @@ public class ModelImpl implements Model{
             throw new IllegalArgumentException();
         }
 
+        //temporarily, this is no longer a lamp
+        lamps[r][c] = 0;
+        boolean illegal = false;
         if (isLit(r,c)){
-            return true;
+            illegal = true;
         }
-        else return false;
+        lamps[r][c] = 1;
+        return illegal;
     }
 
     @Override
@@ -229,6 +233,9 @@ public class ModelImpl implements Model{
     @Override
     public boolean isClueSatisfied(int r, int c) {
         if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+            throw new IndexOutOfBoundsException();
+        }
+        else if ((r<0) || (c<0)){
             throw new IndexOutOfBoundsException();
         }
         else if (active_puzzle.getCellType(r,c) != CellType.CLUE){
