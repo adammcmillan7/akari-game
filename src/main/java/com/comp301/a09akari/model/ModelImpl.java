@@ -216,7 +216,7 @@ public class ModelImpl implements Model{
                         }
                         break;
                     case CORRIDOR:
-                        if (isLampIllegal(r,c)){
+                        if (isLamp(r,c) && isLampIllegal(r,c)){
                             solved = false;
                             break;
                         }
