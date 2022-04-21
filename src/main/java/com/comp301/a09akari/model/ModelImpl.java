@@ -89,7 +89,7 @@ public class ModelImpl implements Model{
             if (active_puzzle.getCellType(r,i) != CellType.CORRIDOR){
                 break;
             }
-            else if (isLit(r,i)){
+            else if (isLamp(r,i)){
                 lit = true;
             }
 
@@ -100,7 +100,7 @@ public class ModelImpl implements Model{
             if (active_puzzle.getCellType(r,i) != CellType.CORRIDOR){
                 break;
             }
-            else if (isLit(r,i)){
+            else if (isLamp(r,i)){
                 lit = true;
             }
 
@@ -111,7 +111,7 @@ public class ModelImpl implements Model{
             if (active_puzzle.getCellType(r,i) != CellType.CORRIDOR){
                 break;
             }
-            else if (isLit(r,i)){
+            else if (isLamp(r,i)){
                 lit = true;
             }
         }
@@ -121,7 +121,7 @@ public class ModelImpl implements Model{
             if (active_puzzle.getCellType(r,i) != CellType.CORRIDOR){
                 break;
             }
-            else if (isLit(r,i)){
+            else if (isLamp(r,i)){
                 lit = true;
             }
         }
