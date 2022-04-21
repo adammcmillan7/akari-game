@@ -85,5 +85,21 @@ public class AppTest {
     model.setActivePuzzleIndex(0);
 
     assertFalse(model.isSolved());
+    model.addLamp(3,0);
+    model.addLamp(5,0);
+    model.addLamp(4,1);
+    model.addLamp(0,1);
+    model.addLamp(6,2);
+    model.addLamp(5,3);
+    model.addLamp(0,5);
+    model.addLamp(1,4);
+    model.addLamp(2,5);
+
+    assertTrue(model.isClueSatisfied(4,0));
+    assertTrue(model.isClueSatisfied(5,1));
+    assertTrue(model.isClueSatisfied(6,4));
+    assertTrue(model.isClueSatisfied(1,5));
+
+    assertTrue(model.isSolved());
   }
 }
