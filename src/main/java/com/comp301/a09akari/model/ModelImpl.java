@@ -205,8 +205,8 @@ public class ModelImpl implements Model{
     public boolean isSolved() {
         boolean solved = true;
 
-        for (int r=0;r<active_puzzle.getHeight();r++){
-            for (int c=0;r<active_puzzle.getWidth();c++){
+        for (int r=0;r<=active_puzzle.getHeight();r++){
+            for (int c=0;r<=active_puzzle.getWidth();c++){
                 switch (active_puzzle.getCellType(r,c)){
                     case WALL:
                         break;
