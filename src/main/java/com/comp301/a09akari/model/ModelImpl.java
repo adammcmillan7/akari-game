@@ -265,8 +265,10 @@ public class ModelImpl implements Model {
   }
 
   private void notifyObservers() {
-    for (ModelObserver observer : observers) {
-      observer.update(this);
+    if (!observers.isEmpty()) {
+      for (ModelObserver observer : observers) {
+        observer.update(this);
+      }
     }
   }
 }
