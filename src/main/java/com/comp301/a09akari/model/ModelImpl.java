@@ -22,7 +22,7 @@ public class ModelImpl implements Model{
     }
 
     private void initLamps(){
-        lamps = new int[active_puzzle.getHeight()+1][active_puzzle.getWidth()+1];
+        lamps = new int[active_puzzle.getHeight()-1][active_puzzle.getWidth()-1];
         for (int i=0;i<active_puzzle.getHeight();i++){
             for (int j=0;j<active_puzzle.getWidth();j++){
                 lamps[i][j] = 0;
@@ -33,7 +33,7 @@ public class ModelImpl implements Model{
 
     @Override
     public void addLamp(int r, int c) {
-        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+        if ((r >= active_puzzle.getHeight()) || (c >= active_puzzle.getWidth())){
             throw new IndexOutOfBoundsException();
         }
         else if (active_puzzle.getCellType(r,c) != CellType.CORRIDOR){
@@ -47,7 +47,7 @@ public class ModelImpl implements Model{
 
     @Override
     public void removeLamp(int r, int c) {
-        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+        if ((r >= active_puzzle.getHeight()) || (c >= active_puzzle.getWidth())){
             throw new IndexOutOfBoundsException();
         }
         else if (active_puzzle.getCellType(r,c) != CellType.CORRIDOR){
@@ -64,7 +64,7 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isLit(int r, int c) {
-        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+        if ((r >= active_puzzle.getHeight()) || (c >= active_puzzle.getWidth())){
             throw new IndexOutOfBoundsException();
         }
         else if (active_puzzle.getCellType(r,c) != CellType.CORRIDOR){
@@ -124,7 +124,7 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isLamp(int r, int c) {
-        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+        if ((r >= active_puzzle.getHeight()) || (c >= active_puzzle.getWidth())){
             throw new IndexOutOfBoundsException();
         }
         else if (active_puzzle.getCellType(r,c) != CellType.CORRIDOR){
@@ -139,7 +139,7 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isLampIllegal(int r, int c) {
-        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+        if ((r >= active_puzzle.getHeight()) || (c >= active_puzzle.getWidth())){
             throw new IndexOutOfBoundsException();
         }
         else if (lamps[r][c] != 1){
@@ -164,7 +164,7 @@ public class ModelImpl implements Model{
 
     @Override
     public void setActivePuzzleIndex(int index) {
-        if (index > lib.size()){
+        if (index >= lib.size()){
             throw new IndexOutOfBoundsException();
         }
 
@@ -217,7 +217,7 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isClueSatisfied(int r, int c) {
-        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+        if ((r >= active_puzzle.getHeight()) || (c >= active_puzzle.getWidth())){
             throw new IndexOutOfBoundsException();
         }
         else if (active_puzzle.getCellType(r,c) != CellType.CLUE){
