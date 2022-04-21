@@ -245,20 +245,21 @@ public class ModelImpl implements Model{
         int clue_count = active_puzzle.getClue(r,c);
         int real_count = 0;
 
-        if (r!= active_puzzle.getWidth()){
+        if (r!= active_puzzle.getHeight()){
             if (lamps[r+1][c] == 1) {
                 real_count += 1;
             }
         }
-        else if ((r!= 0) && (lamps[r-1][c] == 1)){
+        if ((r!= 0) && (lamps[r-1][c] == 1)){
             real_count +=1;
+            System.out.println("up");
         }
-        else if (c!= active_puzzle.getHeight()){
+        if (c != active_puzzle.getWidth()){
             if (lamps[r][c+1] == 1) {
                 real_count += 1;
             }
         }
-        else if ((c!= 0) && (lamps[r][c-1] == 1)){
+        if ((c!= 0) && (lamps[r][c-1] == 1)){
             real_count += 1;
         }
 
