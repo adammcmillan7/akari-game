@@ -1,5 +1,6 @@
 package com.comp301.a09akari.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ModelImpl implements Model {
@@ -14,6 +15,7 @@ public class ModelImpl implements Model {
     if (library == null) {
       throw new NullPointerException();
     }
+    observers = new ArrayList<>(100);
     lib = library;
     puzzle_index = 0;
     active_puzzle = lib.getPuzzle(0);
