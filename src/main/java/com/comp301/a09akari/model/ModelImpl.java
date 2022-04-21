@@ -2,7 +2,7 @@ package com.comp301.a09akari.model;
 
 import java.util.List;
 
-public class ModelImpl implements Model{
+public class ModelImpl implements Model {
 
     private PuzzleLibrary lib;
     private List<ModelObserver> observers;
@@ -11,7 +11,7 @@ public class ModelImpl implements Model{
     private int[][] lamps;
 
     public ModelImpl(PuzzleLibrary library) {
-        if (library == null){
+        if (library == null) {
             throw new NullPointerException();
         }
         lib = library;
@@ -21,10 +21,10 @@ public class ModelImpl implements Model{
 
     }
 
-    private void initLamps(){
+    private void initLamps() {
         lamps = new int[active_puzzle.getHeight()][active_puzzle.getWidth()];
-        for (int i=0;i<active_puzzle.getHeight();i++){
-            for (int j=0;j<active_puzzle.getWidth();j++){
+        for (int i = 0; i < active_puzzle.getHeight(); i++) {
+            for (int j = 0; j < active_puzzle.getWidth(); j++) {
                 lamps[i][j] = 0;
             }
         }
@@ -33,13 +33,11 @@ public class ModelImpl implements Model{
 
     @Override
     public void addLamp(int r, int c) {
-        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())) {
             throw new IndexOutOfBoundsException();
-        }
-        else if ((r<0) || (c<0)){
+        } else if ((r < 0) || (c < 0)) {
             throw new IndexOutOfBoundsException();
-        }
-        else if (active_puzzle.getCellType(r,c) != CellType.CORRIDOR){
+        } else if (active_puzzle.getCellType(r, c) != CellType.CORRIDOR) {
             throw new IllegalArgumentException();
         }
 
@@ -49,16 +47,13 @@ public class ModelImpl implements Model{
 
     @Override
     public void removeLamp(int r, int c) {
-        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())) {
             throw new IndexOutOfBoundsException();
-        }
-        else if ((r<0) || (c<0)){
+        } else if ((r < 0) || (c < 0)) {
             throw new IndexOutOfBoundsException();
-         }
-        else if (active_puzzle.getCellType(r,c) != CellType.CORRIDOR){
+        } else if (active_puzzle.getCellType(r, c) != CellType.CORRIDOR) {
             throw new IllegalArgumentException();
-        }
-        else if (lamps[r][c] != 1){
+        } else if (lamps[r][c] != 1) {
             throw new IllegalArgumentException();
         }
 
@@ -68,16 +63,13 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isLit(int r, int c) {
-        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())) {
             throw new IndexOutOfBoundsException();
-        }
-        else if ((r<0) || (c<0)){
+        } else if ((r < 0) || (c < 0)) {
             throw new IndexOutOfBoundsException();
-        }
-        else if (active_puzzle.getCellType(r,c) != CellType.CORRIDOR){
+        } else if (active_puzzle.getCellType(r, c) != CellType.CORRIDOR) {
             throw new IllegalArgumentException();
-        }
-        else if (isLamp(r,c)){
+        } else if (isLamp(r, c)) {
             //cell is a lamp
             return true;
         }
@@ -85,43 +77,39 @@ public class ModelImpl implements Model{
         boolean lit = false;
 
         //scroll right thru row
-        for (int i=c+1;i<active_puzzle.getWidth();i++){
-            if (active_puzzle.getCellType(r,i) != CellType.CORRIDOR){
+        for (int i = c + 1; i < active_puzzle.getWidth(); i++) {
+            if (active_puzzle.getCellType(r, i) != CellType.CORRIDOR) {
                 break;
-            }
-            else if (isLamp(r,i)){
+            } else if (isLamp(r, i)) {
                 lit = true;
             }
 
         }
 
         //scroll left thru row
-        for (int i=c-1;i>=0;i--){
-            if (active_puzzle.getCellType(r,i) != CellType.CORRIDOR){
+        for (int i = c - 1; i >= 0; i--) {
+            if (active_puzzle.getCellType(r, i) != CellType.CORRIDOR) {
                 break;
-            }
-            else if (isLamp(r,i)){
+            } else if (isLamp(r, i)) {
                 lit = true;
             }
 
         }
 
         //scroll up
-        for (int i=r+1;i<active_puzzle.getHeight();i++){
-            if (active_puzzle.getCellType(i,c) != CellType.CORRIDOR){
+        for (int i = r + 1; i < active_puzzle.getHeight(); i++) {
+            if (active_puzzle.getCellType(i, c) != CellType.CORRIDOR) {
                 break;
-            }
-            else if (isLamp(i,c)){
+            } else if (isLamp(i, c)) {
                 lit = true;
             }
         }
 
         //scroll down
-        for (int i=r-1;i>=0;i--){
-            if (active_puzzle.getCellType(i,c) != CellType.CORRIDOR){
+        for (int i = r - 1; i >= 0; i--) {
+            if (active_puzzle.getCellType(i, c) != CellType.CORRIDOR) {
                 break;
-            }
-            else if (isLamp(i,c)){
+            } else if (isLamp(i, c)) {
                 lit = true;
             }
         }
@@ -131,38 +119,33 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isLamp(int r, int c) {
-        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())) {
             throw new IndexOutOfBoundsException();
-        }
-        else if ((r<0) || (c<0)){
+        } else if ((r < 0) || (c < 0)) {
             throw new IndexOutOfBoundsException();
-        }
-        else if (active_puzzle.getCellType(r,c) != CellType.CORRIDOR){
+        } else if (active_puzzle.getCellType(r, c) != CellType.CORRIDOR) {
             throw new IllegalArgumentException();
         }
 
-        if (lamps[r][c] == 1){
+        if (lamps[r][c] == 1) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
 
     @Override
     public boolean isLampIllegal(int r, int c) {
-        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())){
+        if ((r > active_puzzle.getHeight()) || (c > active_puzzle.getWidth())) {
             throw new IndexOutOfBoundsException();
-        }
-        else if ((r<0) || (c<0)){
+        } else if ((r < 0) || (c < 0)) {
             throw new IndexOutOfBoundsException();
-        }
-        else if (lamps[r][c] != 1){
+        } else if (lamps[r][c] != 1) {
             throw new IllegalArgumentException();
         }
 
         //temporarily, this is no longer a lamp
         lamps[r][c] = 0;
         boolean illegal = false;
-        if (isLit(r,c)){
+        if (isLit(r, c)) {
             illegal = true;
         }
         lamps[r][c] = 1;
@@ -181,7 +164,7 @@ public class ModelImpl implements Model{
 
     @Override
     public void setActivePuzzleIndex(int index) {
-        if (index >= lib.size()){
+        if (index >= lib.size()) {
             throw new IndexOutOfBoundsException();
         }
 
@@ -205,22 +188,21 @@ public class ModelImpl implements Model{
     public boolean isSolved() {
         boolean solved = true;
 
-        for (int r=0;r<=active_puzzle.getHeight()-1;r++){
-            for (int c=0;c<=active_puzzle.getWidth()-1;c++){
-                switch (active_puzzle.getCellType(r,c)){
+        for (int r = 0; r <= active_puzzle.getHeight() - 1; r++) {
+            for (int c = 0; c <= active_puzzle.getWidth() - 1; c++) {
+                switch (active_puzzle.getCellType(r, c)) {
                     case WALL:
                         break;
                     case CLUE:
-                        if (!isClueSatisfied(r,c)){
+                        if (!isClueSatisfied(r, c)) {
                             solved = false;
                         }
                         break;
                     case CORRIDOR:
-                        if (isLamp(r,c) && isLampIllegal(r,c)){
+                        if (isLamp(r, c) && isLampIllegal(r, c)) {
                             solved = false;
                             break;
-                        }
-                        else if (!isLit(r,c)){
+                        } else if (!isLit(r, c)) {
                             solved = false;
                             break;
                         }
@@ -232,46 +214,43 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isClueSatisfied(int r, int c) {
-        if ((r >= active_puzzle.getHeight()) || (c >= active_puzzle.getWidth())){
+        if ((r >= active_puzzle.getHeight()) || (c >= active_puzzle.getWidth())) {
             throw new IndexOutOfBoundsException();
-        }
-        else if ((r<0) || (c<0)){
+        } else if ((r < 0) || (c < 0)) {
             throw new IndexOutOfBoundsException();
-        }
-        else if (active_puzzle.getCellType(r,c) != CellType.CLUE){
+        } else if (active_puzzle.getCellType(r, c) != CellType.CLUE) {
             throw new IllegalArgumentException();
         }
 
-        int clue_count = active_puzzle.getClue(r,c);
+        int clue_count = active_puzzle.getClue(r, c);
         int real_count = 0;
 
-        if (r!= active_puzzle.getHeight()-1){
-            if (lamps[r+1][c] == 1) {
+        if (r != active_puzzle.getHeight() - 1) {
+            if (lamps[r + 1][c] == 1) {
                 real_count += 1;
             }
         }
-        if ((r!= 0) && (lamps[r-1][c] == 1)){
-            real_count +=1;
+        if ((r != 0) && (lamps[r - 1][c] == 1)) {
+            real_count += 1;
         }
-        if (c != active_puzzle.getWidth()-1){
-            if (lamps[r][c+1] == 1) {
+        if (c != active_puzzle.getWidth() - 1) {
+            if (lamps[r][c + 1] == 1) {
                 real_count += 1;
             }
         }
-        if ((c!= 0) && (lamps[r][c-1] == 1)){
+        if ((c != 0) && (lamps[r][c - 1] == 1)) {
             real_count += 1;
         }
 
-        if (real_count == clue_count){
+        if (real_count == clue_count) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
-    
+
 
     @Override
     public void addObserver(ModelObserver observer) {
-        if (observer == null){
+        if (observer == null) {
             throw new NullPointerException();
         }
 
@@ -281,10 +260,9 @@ public class ModelImpl implements Model{
 
     @Override
     public void removeObserver(ModelObserver observer) {
-        if (observer == null){
+        if (observer == null) {
             throw new NullPointerException();
-        }
-        else if (!observers.contains(observer)){
+        } else if (!observers.contains(observer)) {
             throw new IllegalArgumentException();
         }
 

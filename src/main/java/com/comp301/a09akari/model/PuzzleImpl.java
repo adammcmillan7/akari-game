@@ -1,11 +1,11 @@
 package com.comp301.a09akari.model;
 
-public class PuzzleImpl implements Puzzle{
+public class PuzzleImpl implements Puzzle {
 
     private int[][] board;
 
     public PuzzleImpl(int[][] board) {
-        if (board == null){
+        if (board == null) {
             throw new NullPointerException();
         }
         this.board = board;
@@ -24,11 +24,11 @@ public class PuzzleImpl implements Puzzle{
 
     @Override
     public CellType getCellType(int r, int c) {
-        if ((r > getHeight()) || (c > getWidth())){
+        if ((r > getHeight()) || (c > getWidth())) {
             throw new IndexOutOfBoundsException();
         }
 
-        switch (board[r][c]){
+        switch (board[r][c]) {
             case 5:
                 return CellType.WALL;
             case 6:
@@ -41,10 +41,9 @@ public class PuzzleImpl implements Puzzle{
 
     @Override
     public int getClue(int r, int c) {
-        if ((r > getHeight()) || (c > getWidth())){
+        if ((r > getHeight()) || (c > getWidth())) {
             throw new IndexOutOfBoundsException();
-        }
-        else if (getCellType(r,c) != CellType.CLUE){
+        } else if (getCellType(r, c) != CellType.CLUE) {
             throw new IllegalArgumentException();
         }
 
