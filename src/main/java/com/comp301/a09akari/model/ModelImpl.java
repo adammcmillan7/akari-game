@@ -108,20 +108,20 @@ public class ModelImpl implements Model{
 
         //scroll up
         for (int i=r+1;i<active_puzzle.getHeight();i++){
-            if (active_puzzle.getCellType(r,i) != CellType.CORRIDOR){
+            if (active_puzzle.getCellType(i,c) != CellType.CORRIDOR){
                 break;
             }
-            else if (isLamp(r,i)){
+            else if (isLamp(i,c)){
                 lit = true;
             }
         }
 
         //scroll down
         for (int i=r-1;i>=0;i--){
-            if (active_puzzle.getCellType(r,i) != CellType.CORRIDOR){
+            if (active_puzzle.getCellType(i,c) != CellType.CORRIDOR){
                 break;
             }
-            else if (isLamp(r,i)){
+            else if (isLamp(i,c)){
                 lit = true;
             }
         }
