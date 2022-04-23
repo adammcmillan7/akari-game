@@ -2,7 +2,7 @@ package com.comp301.a09akari.model;
 
 public class PuzzleImpl implements Puzzle {
 
-  private int[][] board;
+  private final int[][] board;
 
   public PuzzleImpl(int[][] board) {
     if (board == null) {

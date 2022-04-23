@@ -51,13 +51,14 @@ public class GameGrid implements FXComponent {
               img.setFitWidth(40);
               img.setFitHeight(40);
               tile.setGraphic(img);
-              tile.setAlignment(Pos.CENTER);
+              tile.setAlignment(Pos.CENTER_RIGHT);
 
               if (controller.getModel().isLampIllegal(r, c)) {
                 ImageView illegalimg = new ImageView(new Image("illegal-light-bulb.png"));
                 illegalimg.setFitHeight(40);
                 illegalimg.setFitWidth(40);
                 tile.setGraphic(illegalimg);
+                tile.setAlignment(Pos.CENTER_RIGHT);
               }
             }
 
@@ -71,11 +72,9 @@ public class GameGrid implements FXComponent {
           case CLUE:
             int clue = (controller.getModel().getActivePuzzle().getClue(r, c));
             Label clue_tile = new Label(Integer.toString(clue));
-            if (controller.getModel().isClueSatisfied(r,c)){
+            if (controller.getModel().isClueSatisfied(r, c)) {
               clue_tile.getStyleClass().add("satisfied_clue");
-            }
-            else clue_tile.getStyleClass().add("clue");
-
+            } else clue_tile.getStyleClass().add("clue");
 
             grid.add(clue_tile, c, r);
             break;

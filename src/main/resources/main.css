@@ -53,6 +53,7 @@
 .illegal_lamp{
     -fx-pref-width: 60px;
     -fx-pref-height: 60px;
+    -fx-alignment: center;
 }
 
 .satisfied_clue{

@@ -11,8 +11,7 @@ import javafx.stage.Stage;
 public class AppLauncher extends Application {
   @Override
   public void start(Stage stage) {
-    // TODO: Create your Model, View, and Controller instances and launch your GUI
-    //model
+    // model
     int[][] puz1 = SamplePuzzles.PUZZLE_01;
     int[][] puz2 = SamplePuzzles.PUZZLE_02;
     int[][] puz3 = SamplePuzzles.PUZZLE_03;
@@ -34,25 +33,25 @@ public class AppLauncher extends Application {
 
     Model model = new ModelImpl(lib);
 
-    //controller
+    // controller
     ClassicMvcController controller = new ControllerImpl(model);
 
-    //view
+    // view
     AppView app = new AppView(controller);
 
-    //scene
+    // scene
     Scene scene = new Scene(app.render());
     scene.getStylesheets().add("main.css");
     stage.setScene(scene);
 
-    //refresh render
-    model.addObserver((Model m) -> {
-      scene.setRoot(app.render());
-    });
+    // refresh render
+    model.addObserver(
+        (Model m) -> {
+          scene.setRoot(app.render());
+        });
     stage.setHeight(900);
     stage.setWidth(900);
     stage.setTitle("Akari Light-Up Puzzles");
     stage.show();
-
   }
 }

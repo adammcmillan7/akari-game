@@ -5,19 +5,20 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.layout.HBox;
 
-public class GridContainer implements FXComponent{
+public class GridContainer implements FXComponent {
 
-    private ClassicMvcController controller;
-    public GridContainer(ClassicMvcController controller){
-        this.controller = controller;
-    }
+  private final ClassicMvcController controller;
 
-    @Override
-    public Parent render() {
-        HBox container = new HBox();
-        container.setAlignment(Pos.CENTER);
-        GameGrid grid = new GameGrid(controller);
-        container.getChildren().add(grid.render());
-        return container;
-    }
+  public GridContainer(ClassicMvcController controller) {
+    this.controller = controller;
+  }
+
+  @Override
+  public Parent render() {
+    HBox container = new HBox();
+    container.setAlignment(Pos.CENTER);
+    GameGrid grid = new GameGrid(controller);
+    container.getChildren().add(grid.render());
+    return container;
+  }
 }

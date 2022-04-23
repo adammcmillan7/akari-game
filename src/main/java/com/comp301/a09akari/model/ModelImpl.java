@@ -5,8 +5,8 @@ import java.util.List;
 
 public class ModelImpl implements Model {
 
-  private PuzzleLibrary lib;
-  private List<ModelObserver> observers;
+  private final PuzzleLibrary lib;
+  private final List<ModelObserver> observers;
   private int puzzle_index;
   private Puzzle active_puzzle;
   private int[][] lamps;
@@ -125,9 +125,7 @@ public class ModelImpl implements Model {
       throw new IllegalArgumentException();
     }
 
-    if (lamps[r][c] == 1) {
-      return true;
-    } else return false;
+      return lamps[r][c] == 1;
   }
 
   @Override
@@ -241,9 +239,7 @@ public class ModelImpl implements Model {
       real_count += 1;
     }
 
-    if (real_count == clue_count) {
-      return true;
-    } else return false;
+      return real_count == clue_count;
   }
 
   @Override

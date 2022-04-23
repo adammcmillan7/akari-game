@@ -4,7 +4,7 @@ import com.comp301.a09akari.model.Model;
 
 public class ControllerImpl implements ClassicMvcController {
 
-  private Model model;
+  private final Model model;
   private int puzzle_index;
 
   public ControllerImpl(Model model) {
@@ -48,21 +48,21 @@ public class ControllerImpl implements ClassicMvcController {
 
   @Override
   public void clickCell(int r, int c) {
-    //click = make corridor a lamp
-    if (model.isLamp(r,c)){
-      model.removeLamp(r,c);
+    // click = make corridor a lamp
+    if (model.isLamp(r, c)) {
+      model.removeLamp(r, c);
+    } else {
+      model.addLamp(r, c);
     }
-    else {
-      model.addLamp(r,c);
-    }
-  }
-  @Override
-  public String getPuzzleName(){
-    return "Puzzle " + (puzzle_index+1);
   }
 
   @Override
-  public String getPuzzleSize(){
+  public String getPuzzleName() {
+    return "Puzzle " + (puzzle_index + 1);
+  }
+
+  @Override
+  public String getPuzzleSize() {
     int height = model.getActivePuzzle().getHeight();
     int width = model.getActivePuzzle().getWidth();
 
@@ -70,12 +70,12 @@ public class ControllerImpl implements ClassicMvcController {
   }
 
   @Override
-  public Model getModel(){
+  public Model getModel() {
     return model;
   }
 
   @Override
-  public void selectPuzzle(int index){
+  public void selectPuzzle(int index) {
     puzzle_index = index;
     model.setActivePuzzleIndex(puzzle_index);
   }
