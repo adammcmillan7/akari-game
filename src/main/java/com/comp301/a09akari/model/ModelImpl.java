@@ -125,7 +125,7 @@ public class ModelImpl implements Model {
       throw new IllegalArgumentException();
     }
 
-      return lamps[r][c] == 1;
+    return lamps[r][c] == 1;
   }
 
   @Override
@@ -239,7 +239,7 @@ public class ModelImpl implements Model {
       real_count += 1;
     }
 
-      return real_count == clue_count;
+    return real_count == clue_count;
   }
 
   @Override
