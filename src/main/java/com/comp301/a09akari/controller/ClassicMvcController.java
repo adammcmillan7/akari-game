@@ -1,5 +1,7 @@
 package com.comp301.a09akari.controller;
 
+import com.comp301.a09akari.model.Model;
+
 public interface ClassicMvcController {
   /** Handles the click action to go to the next puzzle */
   void clickNextPuzzle();
@@ -15,4 +17,15 @@ public interface ClassicMvcController {
 
   /** Handles the click event on the cell at row r, column c */
   void clickCell(int r, int c);
+
+  /** Returns the name of current puzzle */
+  String getPuzzleName();
+
+  /** Returns the size of the current puzzle */
+  String getPuzzleSize();
+
+  /** Getter method for model */
+  Model getModel();
+
+  void selectPuzzle(int index);
 }

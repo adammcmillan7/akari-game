@@ -5,3 +5,61 @@
  * JavaFX start() method:
  *   scene.getStylesheets().add("main.css");
  */
+
+.message {
+    -fx-text-fill: #38761d;
+    -fx-font-size: 20px;
+}
+
+.size{
+    -fx-font-size: 20px;
+}
+
+.puzzle_title{
+    -fx-font-size: 36px;
+    -fx-alignment: top-center;
+}
+
+.corridor {
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #ffffff;
+}
+
+.wall {
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
+    -fx-text-fill: #000000;
+    -fx-background-color: #000000;
+}
+
+.clue{
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
+    -fx-text-fill: #f44336;
+    -fx-background-color: #000000;
+    -fx-alignment: center;
+    -fx-font-size: 40px;
+}
+
+.lit_tile{
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
+    -fx-text-fill: #ffe599;
+    -fx-background-color: #ffe599;
+}
+
+.illegal_lamp{
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
+}
+
+.satisfied_clue{
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
+    -fx-text-fill: #38761d;
+    -fx-background-color: #000000;
+    -fx-alignment: center;
+    -fx-font-size: 40px;
+}
