@@ -26,8 +26,8 @@ public class ControlButtons implements FXComponent {
     // prev puzzle
     Button previous = new Button();
     ImageView prev = new ImageView(new Image("previous-button.png"));
-    prev.setFitWidth(30);
-    prev.setFitHeight(30);
+    prev.setFitWidth(60);
+    prev.setFitHeight(60);
     previous.setGraphic(prev);
     previous.setOnAction(
         (ActionEvent event) -> {
@@ -46,8 +46,8 @@ public class ControlButtons implements FXComponent {
     // nex puzzle
     Button next = new Button();
     ImageView next_img = new ImageView(new Image("next-button.png"));
-    next_img.setFitHeight(30);
-    next_img.setFitWidth(30);
+    next_img.setFitHeight(60);
+    next_img.setFitWidth(60);
     next.setGraphic(next_img);
     next.setOnAction(
         (ActionEvent event) -> {

@@ -19,7 +19,7 @@ public class ControlBox implements FXComponent {
   @Override
   public Parent render() {
     VBox controlbox = new VBox();
-    controlbox.setAlignment(Pos.BOTTOM_CENTER);
+    controlbox.setAlignment(Pos.CENTER);
     controlbox.setSpacing(7);
 
     // reset button
