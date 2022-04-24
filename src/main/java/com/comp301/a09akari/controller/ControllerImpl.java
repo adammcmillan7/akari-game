@@ -38,7 +38,7 @@ public class ControllerImpl implements ClassicMvcController {
   @Override
   public void clickRandPuzzle() {
     int rand = (int) (Math.random() * model.getPuzzleLibrarySize());
-    if (rand == puzzle_index){
+    if (rand == puzzle_index) {
       clickRandPuzzle();
       return;
     }

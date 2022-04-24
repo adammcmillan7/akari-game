@@ -45,29 +45,25 @@ public class GameGrid implements FXComponent {
               tile.getStyleClass().add("corridor");
             }
 
-            if (controller.getModel().getActivePuzzle().getHeight() > 7){
+            if (controller.getModel().getActivePuzzle().getHeight() > 7) {
               tile.getStyleClass().add("small_tile");
-            }
-            else {
+            } else {
               tile.getStyleClass().add("big_tile");
             }
 
             if (controller.getModel().isLamp(r, c)) {
-              //tile.getStyleClass().removeAll();
+              // tile.getStyleClass().removeAll();
               ImageView img = new ImageView(new Image("light-bulb.png"));
 
-              if (controller.getModel().getActivePuzzle().getHeight() > 7){
+              if (controller.getModel().getActivePuzzle().getHeight() > 7) {
                 img.setFitWidth(22);
                 img.setFitHeight(22);
                 img.setTranslateX(10);
-              }
-              else {
+              } else {
                 img.setFitWidth(32);
                 img.setFitHeight(32);
                 img.setTranslateX(10);
-
               }
-
 
               tile.setGraphic(img);
               tile.setAlignment(Pos.CENTER_RIGHT);
@@ -75,12 +71,11 @@ public class GameGrid implements FXComponent {
               if (controller.getModel().isLampIllegal(r, c)) {
                 ImageView illegalimg = new ImageView(new Image("illegal-light-bulb.png"));
 
-                if (controller.getModel().getActivePuzzle().getHeight() > 7){
+                if (controller.getModel().getActivePuzzle().getHeight() > 7) {
                   illegalimg.setFitWidth(22);
                   illegalimg.setFitHeight(22);
                   illegalimg.setTranslateX(10);
-                }
-                else {
+                } else {
                   illegalimg.setFitWidth(32);
                   illegalimg.setFitHeight(32);
                   illegalimg.setTranslateX(10);
@@ -95,10 +90,9 @@ public class GameGrid implements FXComponent {
           case WALL:
             Label wall_tile = new Label("5");
             wall_tile.getStyleClass().add("wall");
-            if (controller.getModel().getActivePuzzle().getHeight() > 7){
+            if (controller.getModel().getActivePuzzle().getHeight() > 7) {
               wall_tile.getStyleClass().add("small_tile");
-            }
-            else {
+            } else {
               wall_tile.getStyleClass().add("big_tile");
             }
             grid.add(wall_tile, c, r);
@@ -110,10 +104,9 @@ public class GameGrid implements FXComponent {
               clue_tile.getStyleClass().add("satisfied_clue");
             } else clue_tile.getStyleClass().add("clue");
 
-            if (controller.getModel().getActivePuzzle().getHeight() > 7){
+            if (controller.getModel().getActivePuzzle().getHeight() > 7) {
               clue_tile.getStyleClass().add("small_tile");
-            }
-            else {
+            } else {
               clue_tile.getStyleClass().add("big_tile");
             }
 
