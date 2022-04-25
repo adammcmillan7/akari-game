@@ -49,8 +49,8 @@ public class AppLauncher extends Application {
         (Model m) -> {
           scene.setRoot(app.render());
         });
-    stage.setHeight(900);
-    stage.setWidth(900);
+    stage.setHeight(700);
+    stage.setWidth(700);
     stage.setTitle("Akari Light-Up Puzzles");
     stage.show();
   }
