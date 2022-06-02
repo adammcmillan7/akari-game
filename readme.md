@@ -24,7 +24,7 @@ Controller acts as a "translator" between the Model and View in the MVC design p
 
 ### View
 
-View holds all code involved with the GUI. AppLauncher.java is the launching point of the application; the start() method launches the JavaFX GUI. AppLauncher creates a PuzzleLibrary from the Sample Puzzles and instatiates a Model that takes this PuzzleLibrary as a parameter. Likewise, instantiation of a Controller takes Model as a parameter. The GUI is composed of a multitude of components organized in a heirarchy as seen below. The parent component, AppView, is instantiated in AppLauncher.java.
+View holds all code involved with the GUI. AppLauncher.java is the launching point of the application; the start() method launches the JavaFX GUI. AppLauncher creates a PuzzleLibrary from the Sample Puzzles and instatiates a Model that takes this PuzzleLibrary as a parameter. Likewise, instantiation of a Controller takes Model as a parameter. The GUI is composed of a multitude of components organized in a hierarchy as seen below. The parent component, AppView, is instantiated in AppLauncher.java.
 
 ![Chart1](https://user-images.githubusercontent.com/77686811/171518171-f80184b0-bcba-4a3a-b504-cbfa6b7c20d7.PNG)
 ![Chart2](https://user-images.githubusercontent.com/77686811/171518173-3d784083-59fd-43e0-8368-d1a5024e1dbe.PNG)
